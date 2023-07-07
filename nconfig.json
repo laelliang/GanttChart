@@ -1,0 +1,6 @@
+{
+  "outDir": "./dist",
+  "port": 3334,
+  "src": "./src",
+  "watchDir": ["./src", "./gantt"]
+}

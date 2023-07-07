@@ -1,0 +1,16 @@
+{
+  "include": ["gantt/**/*.ts"], // 需要编译的文件匹配模式
+  "exclude": ["node_modules"],
+  "compilerOptions": {
+    "sourceMap": true,
+    "module": "es2020", // 设置模块化方案为 ES2020 或更高版本
+    "moduleResolution": "node",
+    "outDir": "./dist/gantt", // 设置输出目录
+    "allowJs": true, // 允许编译 JavaScript 文件
+    "esModuleInterop": true, // 启用对 CommonJS 模块的互操作性
+    "declaration": false, // 可选，如果不需要生成声明文件则设为 false
+    "plugins": [ //自定义插件
+      { "transform": "./modify-suffix.ts" }
+    ]
+  }
+}

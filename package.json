@@ -1,0 +1,22 @@
+{
+  "name": "ganttchart",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node dev.js",
+    "build": "node build.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cheerio": "^1.0.0-rc.12",
+    "chokidar": "^3.5.3",
+    "commander": "^11.0.0",
+    "express": "^4.18.2",
+    "ts-node": "^10.9.1",
+    "ts-patch": "^3.0.1",
+    "typescript": "^5.1.6",
+    "ws": "^8.13.0"
+  }
+}
