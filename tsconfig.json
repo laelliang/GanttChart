@@ -10,7 +10,11 @@
     "esModuleInterop": true, // 启用对 CommonJS 模块的互操作性
     "declaration": false, // 可选，如果不需要生成声明文件则设为 false
     "plugins": [ //自定义插件
-      { "transform": "./modify-suffix.ts" }
-    ]
+      { "transform": "./path-processing.ts" }
+    ],
+    "paths": {
+      "@gantt/*": ["./gantt/*"],
+      "@utils/*": ["./gantt/utils/*"],
+    }
   }
 }

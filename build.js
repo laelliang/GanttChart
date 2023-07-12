@@ -21,7 +21,7 @@ console.log(deleteOut.toString('utf8'))
 
 
 // 编译
-const buildOut = execSync(`cd ${__dirname} && tspc -p tsconfig.json`)
+const buildOut = execSync(`cd ${__dirname} && npx tspc -p tsconfig.json`)
 console.log(buildOut.toString('utf8'))
 
 // 复制文件

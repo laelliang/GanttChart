@@ -1,0 +1,142 @@
+.gantt {
+  display: flex;
+  user-select: none;
+}
+.gantt-table{
+  border-collapse: collapse;
+  width: 100%;
+}
+.gantt-table tr {
+  vertical-align: middle;
+}
+.gantt-table-thead tr {
+  height: 40px;
+}
+.gantt-table-tbody tr {
+  height: 30px;
+}
+.gantt-table th,td {
+  border: 1px solid #333;
+}
+.gantt-table-box {
+  min-width: 300px;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+.gantt-split-line-box {
+  width: 1px;
+  background-color: #333;
+  position: relative;
+  margin-left: -1px;
+  cursor: ew-resize;
+}
+.gantt-split-line {
+  width: 20px;
+  position: absolute;
+  height: 100%;
+  margin-left: -10px;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  
+}
+.gantt-svg-box {
+  min-width: 300px;
+  overflow-x: auto;
+}
+.gantt-svg {
+  display: block;
+}
+
+.gantt-svg-head-text {
+  font-size: 16px;
+}
+.gantt-table-tr-add {
+  width: 26px;
+  height: 26px;
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB0PSIxNjg4ODA3NzU2NjA4IiBjbGFzcz0iaWNvbiIgdmlld0JveD0iMCAwIDEwMjQgMTAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHAtaWQ9IjIyOTYiIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIj48cGF0aCBkPSJNNDE2IDQxNiA2NC4wNjQgNDE2QzI4LjQ0OCA0MTYgMCA0NDQuNjQgMCA0NzkuOTM2TDAgNTQ0LjA2NEMwIDU3OS4yNjQgMjguNjcyIDYwOCA2NC4wNjQgNjA4TDQxNiA2MDggNDE2IDk1OS45MzZDNDE2IDk5NS41NTIgNDQ0LjY0IDEwMjQgNDc5LjkzNiAxMDI0TDU0NC4wNjQgMTAyNEM1NzkuMjY0IDEwMjQgNjA4IDk5NS4zMjggNjA4IDk1OS45MzZMNjA4IDYwOCA5NTkuOTM2IDYwOEM5OTUuNTUyIDYwOCAxMDI0IDU3OS4zNiAxMDI0IDU0NC4wNjRMMTAyNCA0NzkuOTM2QzEwMjQgNDQ0LjczNiA5OTUuMzI4IDQxNiA5NTkuOTM2IDQxNkw2MDggNDE2IDYwOCA2NC4wNjRDNjA4IDI4LjQ0OCA1NzkuMzYgMCA1NDQuMDY0IDBMNDc5LjkzNiAwQzQ0NC43MzYgMCA0MTYgMjguNjcyIDQxNiA2NC4wNjRMNDE2IDQxNloiIHAtaWQ9IjIyOTciIGZpbGw9IiMxMjk2ZGIiPjwvcGF0aD48L3N2Zz4=);
+  background-position: 50%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  opacity: .3;
+  background-size: 80%;
+  margin: 0 auto;
+}
+
+.gantt-table-tr-add:hover{
+  opacity: 1;
+}
+
+.gantt-table-tbody td, .gantt-table-thead th{
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.gantt-table-tbody tr>td:not(:last-child), .gantt-table-thead tr>th:not(:last-child){
+  padding: 4px 10px;
+}
+
+
+.gantt-table-active-item {
+  background-color: #fff3a1;
+}
+
+.gantt-modal-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0,0,0,.3);
+}
+.gantt-modal-container {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  width: 300px;
+  padding: 6px;
+  border-radius: 4px;
+  background-color: #FFF;
+  box-sizing: border-box;
+  height: min-content;
+}
+.gantt-modal-form {
+  display: flex;
+  flex-direction:column;
+}
+.gantt-modal-form label span{
+  width: 35%;
+  text-align: right;
+  display: inline-block;
+}
+.gantt-modal-form label:not(:last-child) {
+  margin-bottom: 10px;
+}
+.gantt-modal-form label input {
+  width: 60%;
+}
+
+.gantt-modal-title {
+  font-size: 24px;
+  margin-top: 0;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.gantt-modal-footer {
+  display: flex;
+  justify-content: space-around;
+}
+
+.gantt-svg-rect-circle {
+  cursor: pointer;
+}
+.gantt-svg-rect-circle:hover {
+  fill: green;
+}
+.hide {
+  display: none;
+}

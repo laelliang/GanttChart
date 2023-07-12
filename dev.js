@@ -11,9 +11,8 @@ try {
 } catch (error) {
   console.error('读取 JSON 文件时出错:', error);
 }
-
-configData.outDir = path.join(__dirname, configData.outDir)
-configData.src = path.join(__dirname, configData.src)
+configData.outDir = path.join(__dirname, configData.outDir.replace('\/', '\\'))
+configData.src = path.join(__dirname, configData.src.replace('\/', '\\'))
 
 // 创建 WebSocket 服务器
 const wss = new WebSocket.Server({ port: 7869 });
@@ -56,7 +55,7 @@ const createConnection = () => {
 
 
   // 编译
-  const buildOut = execSync(`cd ${__dirname} && npm run build`)
+  const buildOut = execSync(`cd ${__dirname} && npx tspc -p tsconfig.json`)
   console.log(buildOut.toString('utf8'))
 
   // 复制文件

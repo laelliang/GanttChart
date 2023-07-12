@@ -25,11 +25,11 @@ function copyFiles(sourceDir, destinationDir) {
       // 如果是文件夹，则递归复制文件夹下的所有文件
       fs.mkdirSync(destinationPath);
       copyFiles(sourcePath, destinationPath);
-      console.log(`复制文件夹${sourcePath}`)
+      console.log(`复制文件夹 ${sourcePath}`)
     } else {
       // 如果是文件，则直接复制文件到目标文件夹
       fs.copyFileSync(sourcePath, destinationPath);
-      console.log(`复制文件${sourcePath}`)
+      console.log(`复制文件 ${sourcePath}`)
     }
   });
 }

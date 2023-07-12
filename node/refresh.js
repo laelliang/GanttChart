@@ -20,7 +20,7 @@ const createConnection = () => {
   // 监听连接关闭事件
   socket.addEventListener('close', () => {
     console.log('WebSocket连接关闭');
-    setTimeout(createConnection, 100)
+    setTimeout(createConnection, 3000)
   });
 }
 

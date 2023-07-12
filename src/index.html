@@ -5,17 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <script type="module" src="./gantt/index.js"></script>
+  <link rel="stylesheet" href="./gantt.css">
+
   <link rel="stylesheet" href="index.css">
 </head>
 <body>
-  <p>before</p>
   <div id="gantt"></div>
   <script type="module">
     const ganttDom = document.getElementById('gantt')
-
     const gantt = new Gantt()
-
+    const tasksData = [
+      { id: 1, text: '任务1', start_date: '2023-7-8 16:19', end_date: '2023-7-9 16:19', progress: 0.2},
+      { id: 2, text: '任务2', start_date: '2023-7-8 16:19', end_date: '2023-7-15 16:19', progress: 0.3, pre_task: 1},
+      { id: 3, text: '任务3', start_date: '2023-7-8 16:19', end_date: '2023-8-8 16:19', progress: 0.7}
+    ]
     gantt.init(ganttDom)
+    gantt.setScales([
+      // { unit: "minute", step: 1, format: "%m" }, // 分钟视图格式
+      // { unit: "hour", step: 1, format: "%H" }, // 小时视图格式
+      { unit: "day", step: 1, format: "%D" }, // 日视图格式
+      { unit: "month", step: 1, format: "%Y-%M" }, // 月视图格式
+      // { unit: "year", step: 1, format: "%Y" } // 年视图格式
+    ])
+    gantt.parse(tasksData)
+
 
 
   </script>

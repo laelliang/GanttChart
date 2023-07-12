@@ -2,6 +2,8 @@ import ts from 'typescript';
 import type * as tst from 'typescript';
 import type { TransformerExtras, PluginConfig } from 'ts-patch';
 
+import path from 'path';
+
 export default function(program: tst.Program, pluginConfig: PluginConfig, { ts: tsInstance }: TransformerExtras) {
   return (ctx: tst.TransformationContext) => {
     const { factory } = ctx;
@@ -13,12 +15,21 @@ export default function(program: tst.Program, pluginConfig: PluginConfig, { ts: 
           if (node.importClause && node.importClause.isTypeOnly) {
             return node; // 返回原始节点，不进行修改
           }
+          
+          const relativePath = path.relative(node.getSourceFile().fileName, program.getCurrentDirectory()).replace(/\\/g, '\/')
 
+          console.warn('========================================')
+          console.warn(node.getSourceFile().fileName)
+          console.warn(relativePath + '/gantt/utils')
+
+          const pathStr = node.moduleSpecifier.text
+          .replace(/^@gantt/, relativePath + '/gantt')
+          .replace(/^@utils/, relativePath + '/gantt/utils')
           const newNode = factory.updateImportDeclaration(
             node,
             node.modifiers,
             node.importClause,
-            factory.createStringLiteral(node.moduleSpecifier.text + ".js"),
+            factory.createStringLiteral(pathStr + ".js"),
             node.assertClause
           );
           return newNode;

@@ -8,33 +8,10 @@ program
 
 const options = program.opts();
 
-
-
-// const folderPath = options.path;
-
-// fs.readdir(folderPath, (err, files) => {
-//   if (err && err.code !== 'ENOENT') {
-//     console.error('读取文件夹出错:', err);
-//     return;
-//   }
-
-//   files.forEach(file => {
-//     const filePath = path.join(folderPath, file);
-//     fs.rmSync(folderPath, { recursive: true });
-
-//     fs.unlink(filePath, err => {
-//       if (err) {
-//         console.error('删除文件出错:', err);
-//         return;
-//       }
-//       console.log(`删除文件: ${file}`);
-//     });
-//   });
-// });
 const recursiveDelete = (path) => {
   if (fs.existsSync(path)) {
     fs.readdirSync(path).forEach((file) => {
-      const currentPath = `${path}/${file}`;
+      const currentPath = `${path}\\${file.replace('\/', '\\')}`;
 
       if (fs.lstatSync(currentPath).isDirectory()) {
         recursiveDelete(currentPath);
